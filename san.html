@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <plaintext>
+        <!DOCTYPE html>
+<html>
+<head>
+  <title>Passenger Registration</title>
+  <style>
+    body {
+      background-image: url('https://cdn4.vectorstock.com/i/1000x1000/70/23/online-purchase-or-booking-of-tickets-vector-14847023.jpg');
+      background-size: cover;
+      color:black;
+      font-family: Arial', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .success-message {
+      color: #4CAF50;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Passenger Registration</h1>
+    <form id="registration-form">
+      <label for="passenger-name">Passenger Name:</label>
+      <input type="text" id="passenger-name" maxlength="50" required>
+
+      <label for="email">Email:</label><br>
+      <input type="text" id="email" required>
+      <br>
+      <br>
+
+      <label for="password">Password:</label>
+      <input type="text" id="password" maxlength="30" required>
+
+      <label for="address">Address:</label>
+      <textarea id="address" maxlength="100" required></textarea>
+
+      <label for="contact-number">Contact Number:</label>
+      <input type="text" id="contact-number" maxlength="10" required>
+
+      <input type="submit" value="Register">
+    </form>
+  </div>
+
+  <div id="acknowledgment" style="display: none;">
+    <h1>Registration Acknowledgment</h1>
+    <p class="success-message">Passenger Registration successful.</p>
+    <p><strong>Passenger ID:</strong> <span id="passenger-id"></span></p>
+    <p><strong>Passenger Name:</strong> <span id="ack-passenger-name"></span></p>
+    <p><strong>Email:</strong> <span id="ack-email"></span></p>
+  </div>
+
+  <script>
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      // Get form values
+      var passengerName = document.getElementById('passenger-name').value;
+      var email = document.getElementById('email').value;
+      
+      // Generate a random passenger ID
+      var passengerId = Math.floor(Math.random() * 100000) + 1;
+
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+      // Display acknowledgment screen
+      document.getElementById('ack-passenger-name').textContent = passengerName;
+      document.getElementById('ack-email').textContent = email;
+      document.getElementById('passenger-id').textContent = passengerId;
+      document.getElementById('registration-form').style.display = 'none';
+      document.getElementById('acknowledgment').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
+
+    </plaintext>
+</body>
+</html>
